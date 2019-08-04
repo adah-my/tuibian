@@ -1,0 +1,60 @@
+
+  <view class="Search_input_top_box">
+    <view class="Search_ico_box">
+      <icon type="search" class='Search_ico' size='10' color='#405f80'></icon>
+    </view>
+    <input class="{{!searchPanelShow?'Search_Input_x':'Search_Input'}}" bindinput='inputvalue' value="{{input_value}}" bindfocus='onBindFocus'></input>
+    <view wx:if="{{searchPanelShow}}" class="Search_btn" bindtap='search'>搜索</view>
+  </view> 
+
+<view class='trials-detail-container'>
+  <view class='scoll-item'>
+    <view class='direction-container' catchtap='typeTransformUp'>
+      <image src='/images/icon/arrow-up.png'></image>
+    </view>
+    <scroll-view class='trials-container' style='height:{{2*windowHeight-350}}rpx' scroll-y="true">
+      <block wx:for="{{trials}}" wx:key="key" wx:for-index="idx">
+        <view class="{{videoTypeId==idx?'trial-container-x':'trial-container'}}" catchtap='onVideoType' data-videotypeid='{{idx}}'>{{trials[idx]}}</view>
+      </block>
+    </scroll-view>
+    <view class='direction-container'  catchtap='typeTransformDown'>
+      <image src='/images/icon/arrow-down.png'></image>
+    </view>
+  </view>
+
+  <view>
+    <view class='content-direction-container'>
+      <image src='/images/icon/arrow-up.jpg'></image>
+    </view>
+
+    <scroll-view class='videos-container' scroll-y="true">
+      <block wx:for="{{videoList}}" wx:key="key" wx:for-index="i">
+
+        <view class='video-container' catchtap='onVideoTap' data-videoid='{{i}}'>
+          <view class='video-cover-container'>
+            <image class='video-cover' src='/images/hello.jpg'></image>
+            <view class='watch-container'>
+              <view class='watch-data'>
+                <image src='/images/icon/view.png'></image>
+                <text>{{videoList[i].view_number}}</text>
+              </view>
+              <view class='watch-data'>
+                <image src='/images/icon/chat.png'></image>
+                <text>{{videoList[i].chat_number}}</text>
+              </view>
+              <text class='video-duration'>{{videoList[i].video_duration}}</text>
+            </view>
+          </view>
+          <view class='video-title-container'>
+            <text class='title'>{{videoList[i].videotitle}}</text>
+            <text class='brief_introduction'>{{videoList[i].brief_introduction}}</text>
+            <text class='user-name'>{{videoList[i].user_name}}</text>
+          </view>
+        </view>
+
+      </block>
+    </scroll-view>
+
+
+  </view>
+</view>

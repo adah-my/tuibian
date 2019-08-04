@@ -1,0 +1,43 @@
+<view class='personal-data-title'>个人资料</view>
+<view class='edit-data-container'>
+  <view class='edit-big-container' catchtap='changeAvatar'>
+    <image class='head-portrait-img' src='{{avatar}}'></image>
+    <text class="head-portrait-title">修改头像</text>
+    <image style='margin-top:80rpx' class='modify-img' src="/images/icon/arrow-right.png"></image>
+  </view>
+  <view class='edit-min-container' catchtap='modify' data-targetid='0'>
+    <text class='item-title'>昵称</text>
+    <text class='item-content'>{{user_name}}</text>
+    <image class='modify-img' src="/images/icon/arrow-right.png"></image>
+  </view>
+  <view class='edit-min-container' catchtap='powerDrawer' data-statu='open'>
+    <text class='item-title'>性别</text> 
+    <text class='item-content'>{{genderValue}}性</text>
+    <image class='modify-img' src="/images/icon/arrow-right.png"></image>
+  </view>
+  <picker mode="date" value="{{dateValue}}" start="{{date.start}}" end="{{date.end}}" bindchange="datePickerBindchange">
+    <view class='edit-min-container' bindtap='eventhandle'>
+      <text class='item-title'>生日</text>
+      <!-- <text class='item-content'></text> -->
+      <text class='item-content'>{{dateValue}}</text>
+      <image class='modify-img' src="/images/icon/arrow-right.png"></image>
+    </view>
+  </picker>
+
+  <view class='edit-big-container' catchtap='modify' data-targetid='1'>
+    <text class='item-title'>个性签名</text>
+    <text class='individuality-sign'>{{psignature}}</text>
+    <image style='margin-top:80rpx' class='modify-img' src="/images/icon/arrow-right.png"></image>
+  </view>
+</view>
+
+<view class='drawer_screen' wx:if="{{showModalStatus}}"></view>
+
+<view class='drawer_box' animation="{{animationData}}" wx:if="{{showModalStatus}}">
+  <radio-group class='drawer_content' bindchange="radioChange">
+    <label wx:for="{{gender}}">
+      <radio value='{{item.name}}' checked='{{item.name==genderValue}}'>{{item.value}}</radio>
+    </label>
+  </radio-group>
+  <view class='btn_ok' bindtap='powerDrawer' data-statu='close'>确定</view>
+</view>

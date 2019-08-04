@@ -1,0 +1,118 @@
+<view class="section tc" wx:if="{{videoSrc}}">
+  <video class='myVideo' id='myVideo' src="{{videoSrc}}"
+    enable-play-gesture="true" controls></video>
+  <view class="section_container">
+    <block wx:for="{{selectList}}" wx:key='key' wx:for-index="i">
+      <view catchtap='onSelectedTap' class="{{selectId==i?'selection':none}}" data-selectid='{{i}}'>
+        <text>{{selectList[i]}}</text>
+      </view>
+    </block> 
+  </view>
+  <swiper current='{{selectId}}' style='height:{{2*windowHeight-600}}rpx'>
+    <swiper-item class="brief_introduction">
+      <view class='user-container'>
+        <image src='/images/hello.jpg'></image>
+        <text>Adah、木易</text>
+      </view>
+      <view class='title-date-container'>
+        <text class='title'>标题标题标题标题标题标题标题标题标标题标题标题</text>
+        <view class='data-contaienr'>
+          <image src='/images/icon/view.png'></image>
+          <text>12354</text>
+        </view>
+        <text class='introduction'>很长很长的不知道是什么视频的简介，东方嘉盛看到了房价开始的放假哈萨克绝代风华数据库恢复开始的疯狂， 深刻的风林火山客服号谁动了开发环境；历史；反正简介就应该很长</text>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" style='height:90%'>
+        <view class='score-title'>综合评分</view>
+        <view class='score-container'>
+
+          <view class='score-min-container'>
+            <text class='score'>4.9</text>
+            <view>
+              <image wx:for="{{starsList}}" src='/images/icon/star-none.png'></image>
+            </view>
+            <text>{{scoreList[0]}}人评分</text>
+          </view>
+          <view class='progress-max-container'>
+            <block wx:for="{{progress}}" wx:key="key" wx:for-index="idx">
+              <view class='progress-container'>
+                <block wx:for="{{progress}}" wx:key="key" wx:for-index="i">
+                  <image wx:if="{{i<progress[idx]}}" src='/images/icon/star-none.png'></image>
+                </block>
+                <text>{{progress[idx]}}</text>
+                <progress percent="{{100*scoreList[idx+1]/scoreList[0]}}" color="red" stroke-width="5rpx" activeColor="#a8a8a8" backgroundColor="#ccc" />
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view class="score-box" hidden='{{isShow}}'>
+          <text class="star-title">满意度：</text>
+          <view class='stars-container'>
+            <block wx:for="{{stars}}">
+              <view class='item' data-key='{{item+1}}' bindtap='selectRight'>
+                <image src="{{key>item?selectedSrc:normalSrc}}"></image>
+              </view>
+            </block>
+          </view>
+          <button class='botton' catchtap='onSubmit'>提交</button>
+        </view>
+        <view class='comments-container'>
+          <view class='score-title'>评论(3)</view>
+
+          <block wx:for="{{commentsList}}" wx:for-index="idx">
+            <view class='comment-container'>
+              <view class='user-container'>
+                <image style='margin-top:30rpx' src='/images/hello.jpg'></image>
+              </view>
+              <view class='comment-date-container'>
+                <view class='name-date-container'>
+                  <text class='user-name'>{{item.userName}}</text>
+                  <view class='date-container'>
+                    <text>#{{idx+1}}</text>
+                    <text>{{item.date}}</text>
+                  </view>
+                </view>
+                <view class='comment'>
+                  <text>{{item.content}}</text>
+                  <view class='thumb-data-contaienr'>
+                    <view catchtap='isThumbTap' data-idx='{{idx}}'>
+                      <image src="{{item.isThumb?thumb_xSrc:thumbSrc}}"></image>
+                      <text>{{item.thumbNum}}</text>
+                    </view>
+                    <image src='/images/icon/chat.png'></image>
+                    <text>{{item.chatNum}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+
+        </view>
+      </scroll-view>
+
+      <!-- 屏幕底部的输入框 -->
+      <form bindsubmit="bindFormSubmit">
+        <view class='pocket_input' >
+        
+            <input type='text' name="input" placeholder-style='input-placeholder' class='input_style' placeholder='随便说点什么吧~' value='{{ifvalue}}' focus='{{inputFocus}}' style="width:{{!inputFocus?'100%':'80%'}}"  maxlength='50' bindfocus="bindfocus" bindblur="bindblur"
+            bindconfirm="bindconfirm"></input>
+            <button form-type='submit' hidden='{{!inputFocus}}' class='botton2'>发送</button>
+        
+        </view>
+        </form>
+
+    </swiper-item>
+    <swiper-item>
+      <view class='cosmetics-container'>
+        <view style='padding-bottom:10rpx;'>全部商品</view>
+        <view class='cosmetics' wx:for="{{cosmeticsList}}">{{cosmeticsList[index]}}</view>
+      </view>
+      <view scrollbars="none">
+
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

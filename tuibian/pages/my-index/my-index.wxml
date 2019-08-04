@@ -1,0 +1,55 @@
+<view class='my-information-container'>
+  <view>
+    <image class='head-portrait' src='/images/hello.jpg'></image>
+  </view>
+  <view class='user-container'>
+    <text class='user-name'>用户名：Adah、木易</text>
+    <text class='user-number'>手机号：13011112222</text>
+  </view>
+  <view class='edit-data-container' catchtap='onEditDataTap'>
+    <text class='edit-data'>编辑资料</text>
+    <image class='edit-data-img' src='/images/icon/arrow-right.png'></image>
+  </view>
+</view>
+<view class="Search_xian"></view>
+<view class='collect-history-container'>
+  <view catchtap='onHistoryTap' class="{{selectId==0?'selected':'none'}}">
+    <text>浏览历史</text>
+  </view>
+  <view catchtap='onCollectTap' class="{{selectId==1?'selected':'none'}}">
+    <text>收藏</text>
+  </view>
+</view>
+
+<swiper current="{{selectId}}" style='height:{{2*windowHeight-490}}rpx'>
+  <block wx:for="[0,1]">
+    <swiper-item catchtouchmove="stopTouchMove">
+      <scroll-view scroll-y="true" style='height:100%'>
+
+        <block wx:for="{{videoList}}" wx:key="key" wx:for-index="idx">
+          <view class='video-container' catchtap='onVideoTap' data-videoid='{{idx}}'>
+            <view class='cover'>
+              <image src='{{item.videoSrc}}'></image>
+              <text>{{item.video_duration}}</text>
+            </view>
+            <view class='video-details'>
+              <view class='video-title'>{{item.videotitle}}</view>
+              <view style='font-size:25rpx;margin-top:10rpx'>{{item.user_name}}</view>
+              <view class='view-data'>
+                <view class='view-chat'>
+                  <image src='/images/icon/view.png'></image>
+                  <text>{{item.view_number}}</text>
+                </view>
+                <view class='view-chat' style='margin-left:20rpx'>
+                  <image src='/images/icon/chat.png'></image>
+                  <text>{{item.chat_number}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+
+      </scroll-view>
+    </swiper-item>
+  </block>
+</swiper>

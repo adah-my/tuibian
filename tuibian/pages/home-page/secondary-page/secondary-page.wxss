@@ -1,0 +1,253 @@
+page{
+  background-color: white;
+  font-size: 24rpx;
+  color:   #c5c5c5
+} 
+
+.Search_input_top_box {
+  /* margin-top: 12rpx; */
+  position: relative;
+  margin-bottom: 16rpx;
+  margin-top: 20rpx;
+}
+
+.search{
+  background-color: #f2f2f2;
+  height: 70rpx;
+  width:95%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 80rpx;
+  margin:  0 auto 0  auto;
+}
+.search input{
+  height: 100%;
+  width: 600rpx;
+  margin-left: 20rpx;
+}
+.Search_Input {
+  width: 600rpx;
+  height: 58rpx;
+  border-radius: 10px;
+  background: #ececec;
+  margin-left: 20rpx;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 58rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #393939;
+}
+.Search_Input_x {
+  width: 700rpx;
+  height: 58rpx;
+  border-radius: 10px;
+  background: #ececec;
+  margin-left: 20rpx;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 58rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #393939;
+}
+.placeholder{
+  font-size: 24rpx;
+}
+ 
+.Search_btn {
+  display: inline-block;
+  width: 130rpx;
+  height: 58rpx;
+  font-size: 30rpx;
+  color: #393939;
+  /* margin-top: 18rpx; */
+  vertical-align: middle;
+  line-height: 58rpx;
+  text-align: center;
+}
+
+.Search_ico {
+  width: 100%;
+  height: 100%;
+  margin: 20rpx;
+ 
+}
+ 
+.Search_ico_box {
+  position: absolute;
+  left: 40rpx;
+  top: 5rpx;
+  width: 23rpx;
+  height: 28rpx;
+  z-index: 999;
+}
+
+
+
+
+.trials-detail-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.scoll-item{
+  display: flex;
+  flex-direction: column;
+  width: 200rpx;
+  height: 100%;
+  margin-top: 20rpx;
+   background-color: #f7f7f7;
+}
+
+.direction-container{
+  height: 70rpx;
+  width:200rpx;
+  /* border: 1px #000 solid; */
+}
+
+.scoll-item image{
+  width: 50rpx;
+  height: 50rpx;
+  text-align:center;
+  vertical-align:middle;
+  margin-left: 75rpx;
+  margin-top: 10rpx;
+}
+
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.trials-container{
+  /* float: left; */
+  /* border: 1px #000 solid; */
+  height: 1000rpx;
+ 
+}
+
+.trial-container{
+  width: 200rpx;
+  height: 80rpx;
+  /* border: 1px #000 solid; */
+  text-align: center;
+  line-height: 80rpx;
+   margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.trial-container-x{
+  width: 200rpx;
+  height: 80rpx;
+  /* border: 1px #000 solid; */
+  text-align: center;
+  line-height: 80rpx;
+   margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+}
+
+.content-direction-container{
+  height: 70rpx;
+  width:750rpx;
+  /* border: 1px #000 solid; */
+  background-color: white;
+}
+
+.content-direction-container image{
+  width: 50rpx;
+  height: 50rpx;
+  text-align:center;
+  vertical-align:middle;
+  margin-left: 250rpx;
+  margin-top: 10rpx;
+}
+
+.videos-container{
+  height:1200rpx;
+}
+
+.video-container{
+  display: flex;
+  flex-direction: column;
+  width: 445rpx;
+  height: 400rpx;
+  /* border: 1px #000 solid; */
+  border-radius: 25rpx;
+  margin: 25rpx 55rpx 25rpx;
+  box-shadow:1rpx 1rpx 1rpx 1rpx #ccc;
+}
+
+.video-cover-container{
+  display: flex;
+  flex-direction: column;
+  width: 445rpx;
+  height:250rpx;
+}
+
+.video-cover{
+  width: 445rpx;
+  height:250rpx;
+  border-radius: 25rpx 25rpx 0 0;
+}
+
+.watch-container{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 220rpx;
+  /* margin-bottom: 50rpx; */
+  /* margin-left: 20rpx; */
+}
+
+.watch-container image{
+  position: relative;
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 10rpx;
+  margin-bottom: -2rpx;
+}
+
+.watch-data{
+  margin-left: 10rpx;
+}
+
+.watch-data  text{
+  position: relative;
+  margin-bottom: 5rpx;
+  margin-left: 10rpx;
+  color: white;
+}
+
+.video-duration{
+  margin-left: 180rpx;
+  color: white;
+}
+
+.video-title-container{
+  display: flex;
+  flex-direction: column;
+  height: 135rpx;
+  /* border: 1px #393939 solid; */
+
+  padding: 10rpx 20rpx 3rpx 20rpx;
+}
+
+.title{
+  color: black;
+  font-size: 26rpx;
+}
+
+.brief_introduction{
+  font-size: 20rpx;
+  margin-top:5rpx;
+  height: 57rpx;
+  /* border: 1px #393939 solid; */
+}
+
+.user-name{
+  margin-top: 5rpx;
+}

@@ -1,0 +1,65 @@
+page{
+  background-color: #eeeeeec9;
+}
+.vedio-max-conatiner{
+  margin-top: 30rpx;
+  display: flex;
+  flex-wrap:  wrap;
+  /* justify-content: space-around; */
+  /* margin-left: 20rpx; */
+  /* border:1px #000; */
+}
+
+.vedio-container{
+  margin-bottom: 20rpx;
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: column;
+  width: 340rpx;
+  height: 340rpx;
+  /* border: 1px solid #000; */
+  border-radius: 15rpx;
+  /* box-shadow:  #d1d1d1 ; */
+  background-color: white;
+  box-shadow:1rpx 1rpx 1rpx 1rpx #ccc;
+}
+
+.vedio-img{
+  border-radius: 15rpx 15rpx 0rpx 0rpx;
+  width: 340rpx;
+  height: 220rpx;
+  align-content: center;
+}
+
+.watch-container{
+  display: flex;
+  flex-direction: row;
+  font-size: 20rpx;
+  position: absolute;
+  margin-top:-38rpx;
+  color: white;
+}
+.watch-container image{
+  margin-left: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
+}
+.watch-container text{
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.video-title-container{
+  display: flex;
+  flex-direction: column;
+  font-size: 24rpx;
+  margin-left: 8rpx;
+  color:   #c5c5c5;
+}
+.vedio-title{
+  color: black;
+}
+.user-name{
+  margin-top: 10rpx;
+  font-size: 20rpx;
+}

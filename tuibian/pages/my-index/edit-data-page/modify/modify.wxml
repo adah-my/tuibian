@@ -1,0 +1,7 @@
+<view class='modify-container'>
+    <view class='tips'>{{tips}}</view>
+    <form bindsubmit="bindFormSubmit">
+        <textarea style='height: {{height}}rpx;' name="textarea" value='{{value}}'></textarea>
+        <button form-type="submit">确认修改</button>
+    </form>
+</view> 

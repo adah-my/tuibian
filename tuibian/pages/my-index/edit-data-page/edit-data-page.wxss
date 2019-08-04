@@ -1,0 +1,114 @@
+page{
+  background-color: #f7f7f7;
+  font-size: 24rpx;
+}
+
+.personal-data-title{
+  font-size: 24rpx;
+  color: #c5c5c5;
+  margin:15rpx;
+}
+
+.edit-data-container{
+  
+  background-color: white;
+  width: 100%;
+
+}
+
+.modify-img{
+  float: right;
+  width: 20rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+  margin-top: 35rpx;
+}
+
+.edit-big-container{
+
+  height: 200rpx;
+  width: 100%;
+  line-height: 200rpx;
+  border-bottom: 1px #f7f7f7 solid;
+
+}
+
+.head-portrait-img{
+  margin-left: 20rpx; 
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 120rpx;
+  vertical-align: middle;
+}
+.head-portrait-title{
+  margin-left: 50rpx;
+  
+}
+
+.edit-min-container{
+  /* display: flex;
+  flex-direction: row; */
+  height: 100rpx;
+  width: 100%;
+ vertical-align:middle;
+  line-height: 100rpx;
+  border-bottom: 1px #f7f7f7 solid;
+}
+
+.item-title{
+  margin-left: 20rpx;
+}
+
+.item-content{
+  margin-left: 100rpx
+}
+
+.individuality-sign{
+  margin-left: 52rpx;
+
+}
+
+
+
+
+/*content*/ 
+.drawer_box { 
+  width: 500rpx;  
+  overflow: hidden;  
+  position: fixed;  
+  top: 50%;  
+  left: 0;  
+  z-index: 1002;  
+  background: #FAFAFA;  
+  margin: -200px 130rpx 0 110rpx;  
+  border-radius: 3px;  
+  text-align: center;
+} 
+.drawer_content { 
+  height: 100px;  
+  overflow-y: scroll; /*超出父盒子高度可滚动*/ 
+} 
+radio{
+  font-size: 28rpx;
+   margin: 40px 20rpx 0 20rpx;
+}
+.btn_ok{ 
+  padding: 10px;  
+  font: 20px "microsoft yahei";  
+  text-align: center;  
+  border-top: 1px solid #E8E8EA;  
+  color: #3CC51F;  
+} 
+
+/*mask 遮罩*/ 
+.drawer_screen { 
+  width: 100%;  
+  height: 100%;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: 1000;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;  
+} 

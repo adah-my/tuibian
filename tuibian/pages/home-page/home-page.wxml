@@ -1,0 +1,172 @@
+<!--pages/home-page/home-page.wxml-->
+<!-- 搜索框 -->
+  <view class="Search_input_top_box">
+    <view class="Search_ico_box">
+      <icon type="search" class='Search_ico' size='10' color='#405f80'></icon> 
+    </view>
+    <input class="{{!searchPanelShow?'Search_Input_x':'Search_Input'}}" placeholder='完美日记' placeholder-class='placeholder' bindinput='inputvalue' value="{{input_value}}" bindfocus='onBindFocus'></input>
+    <view wx:if="{{searchPanelShow}}" class="Search_btn" bindtap='search'>{{SearchText}}</view>
+
+    <!-- 推荐转换 -->
+    <view wx:if="{{!searchPanelShow}}" class='transform' catchtap='genderTransform'>{{genderIf?"女":"男"}}</view>
+  </view>
+
+<view wx:if="{{containerShow}}">
+  <!-- 轮播图组件 -->
+  <swiper style='height:400rpx' catchtap='onSwiperTap' indicator-dots="true" autoplay="true" circular="true" easing-function="easeInCubic" duration="1000">
+    <swiper-item>
+      <image src="/images/wx.png" data-postId="0"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/iqiyi.png" data-postId="1"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/vr.png" data-postId="2"></image>
+    </swiper-item>
+  </swiper>
+
+
+  <!-- 美妆试用 -->
+  <view class='beauty-makeup-container'>
+    <view>
+      <view class='beauty-makeup-title'>-美妆试用-</view>
+
+      <view class="item-container">
+        <scroll-view class="item-h" scroll-x="true" style='width:90%'>
+          <block wx:for="{{beautyMakeupType}}" wx:key="key" wx:for-index="idx">
+            <view class="{{typeId==idx?'item-x':'item'}}" catchtap='onClickTypeTap' data-typeid='{{idx}}'>
+              <text class="{{typeId==idx?'cast-name-x':'cast-name'}}">{{beautyMakeupType[idx]}}</text>
+              <!-- <image class='dir-icon' src="/images/icon/allow.jpg"></image> -->
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+      <image class='allow-ringht-img' src="/images/icon/arrow-right.png"></image>
+    </view>
+    <!-- 滑动切换的选项栏 -->
+    <swiper current="{{typeId}}" bindchange="onBindChangeTap">
+      <block wx:for="{{beautyMakeup_key}}" wx:key="{{typeid}}">
+        <swiper-item catchtouchmove="stopTouchMove">
+          <scroll-view scroll-x="true">
+            <view class="navban">
+              <block wx:key="{{index}}" wx:for="{{item}}" wx:for-item="i" wx:for-index="idx">
+
+                <view catchtap='onBeautyMakeupClickTap' wx:if="{{idx<(arrayLength/2)}}" class="try-type" data-beautyid="{{idx}}">
+                  <image class='try-type-img' src='/images/hello.jpg'></image>
+                  <text class='try-type-name'>{{i}}</text>
+                </view>
+
+              </block>
+            </view>
+            <view class="navban" scroll-x="true">
+              <block wx:key="{{index}}" wx:for="{{item}}" wx:for-item="i" wx:for-index="idx">
+
+                <view catchtap='onBeautyMakeupClickTap' wx:if="{{idx>=(arrayLength/2)}}" class="try-type" data-beautyid="{{idx}}">
+                  <image class='try-type-img' src='/images/hello.jpg'></image>
+                  <text class='try-type-name'>{{i}}</text>
+                </view>
+
+              </block>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+
+  <!-- 场景妆容 -->
+  <view class='beauty-makeup-container'>
+    <view>
+      <view class='beauty-makeup-title'>-场景妆容-</view>
+
+      <view class="item-container">
+        <scroll-view class="item-h" scroll-x="true" style='width:90%'>
+          <block wx:key="key" wx:for="{{sceneMakeup}}" wx:for-index="idx1">
+            <view class="{{typeId1==idx1?'item-x':'item'}}" catchtap='onClickTypeTap1' data-typeId1='{{idx1}}'>
+              <text class="{{typeId1==idx1?'cast-name-x':'cast-name'}}">{{sceneMakeup[idx1]}}</text>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+
+      <image class='allow-ringht-img' src="/images/icon/arrow-right.png"></image>
+    </view>
+    <!-- 滑动切换的选项栏 -->
+    <swiper current="{{typeId1}}" bindchange="onBindChangeTap1" style='height:150rpx'>
+      <block wx:for="{{sceneMakeup}}" wx:key="{{typeId1}}">
+        <swiper-item catchtouchmove="stopTouchMove" style="width:100%">
+          <!-- <scroll-view scroll-x="true" style='width:100%'> -->
+          <view class="navban" style='width:100%'>
+            <block wx:key="{{index}}" wx:for="{{makeupLook}}" wx:for-item="i" wx:for-index="idx1">
+              <view catchtap='onVideoTypeClickTap' class="try-type" data-videoTypeid='{{idx1}}'>
+                <image class='try-type-img' src='/images/hello.jpg'></image>
+                <text class='try-type-name'>{{i}}</text>
+              </view>
+            </block>
+          </view>
+          <!-- </scroll-view> -->
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='beauty-makeup-container'>
+    <view class='vedio-max-conatiner'>
+      <block wx:for="{{videoList}}" wx:for-index="idx">
+
+        <view class='vedio-container' catchtap='onVideoTap' data-videoid='{{idx}}'>
+          <view>
+            <image class='vedio-img' src='{{item.videoSrc}}'></image>
+            <view class='watch-container'>
+              <view class='watch-data'>
+                <image src='/images/icon/view.png'></image>
+                <text>{{item.view_number}}</text>
+              </view>
+              <view class='watch-data'>
+                <image src='/images/icon/chat.png'></image>
+                <text>{{item.chat_number}}</text>
+              </view>
+              <text style='margin-left:105rpx;'>{{item.video_duration}}</text>
+            </view>
+          </view>
+          <view class='video-title-container'>
+            <text class='vedio-title'>{{item.videotitle}}</text>
+            <text style='margin-top:5rpx;font-size:22rpx'>{{item.brief_introduction}}</text>
+            <text class='user-name'>{{item.user_name}}</text>
+          </view>
+        </view>
+
+      </block>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{searchPanelShow}}">
+  <view class="Search_xian"></view>
+  <!--搜索记录盒子-->
+  <view class="Search_record_box">
+    <view class="Search_record_text">
+      <text>搜索记录</text>
+      <image bindtap='delete_list' src='/images/icon/trash.jpg'></image>
+    </view>
+    <!--记录词的盒子-->
+    <view class="History_box">
+      <view class="History-list">
+        <text wx:for="{{listarr}}" data-text="{{item}}" wx:key="key" bindtap='this_value'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <!--热门搜索盒子-->
+  <view class="hot_box">
+    <view class="hot_box_text">
+      <text>热门搜索</text>
+    </view>
+    <!--热门词的盒子-->
+    <view class="History_box">
+      <view class="History-list">
+        <text wx:for="{{hostarr}}" data-text="{{item}}" wx:key="key" bindtap='this_value'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

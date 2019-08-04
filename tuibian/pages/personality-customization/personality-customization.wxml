@@ -1,0 +1,27 @@
+<view class='vedio-max-conatiner'>
+  <block wx:for="{{videoList}}" wx:for-index="idx">
+
+        <view class='vedio-container' catchtap='onVideoTap' data-videoid='{{idx}}'>
+          <view>
+            <image class='vedio-img' src='{{item.videoSrc}}'></image>
+            <view class='watch-container'>
+              <view class='watch-data'>
+                <image src='/images/icon/view.png'></image>
+                <text>{{item.view_number}}</text>
+              </view>
+              <view class='watch-data'>
+                <image src='/images/icon/chat.png'></image>
+                <text>{{item.chat_number}}</text>
+              </view>
+              <text style='margin-left:105rpx;'>{{item.video_duration}}</text>
+            </view>
+          </view>
+          <view class='video-title-container'>
+            <text class='vedio-title'>{{item.videotitle}}</text>
+            <text style='margin-top:5rpx;font-size:22rpx'>{{item.brief_introduction}}</text>
+            <text class='user-name'>{{item.user_name}}</text>
+          </view>
+        </view>
+  </block>
+</view>
+

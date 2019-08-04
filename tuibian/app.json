@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/home-page/home-page",
+    "pages/home-page/secondary-page/secondary-page",
+    "pages/home-page/secondary-page/video-detail/video-detail",
+    "pages/my-index/my-index",
+    "pages/my-index/edit-data-page/edit-data-page",
+    "pages/my-index/edit-data-page/modify/modify",
+    "pages/product-details/product-details",
+    "pages/personality-customization/personality-customization"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff64ac",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+
+  "tabBar": {
+    "position": "bottom",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home-page/home-page",
+        "text": "主页",
+        "iconPath": "/images/tab/yuedu.png",
+        "selectedIconPath": "/images/tab/yuedu_hl.png"
+      },
+      {
+        "pagePath": "pages/personality-customization/personality-customization",
+        "text": "个性定制",
+        "iconPath": "/images/tab/ciwei.png",
+        "selectedIconPath": "/images/tab/ciwei_hl.png"
+      },
+      {
+        "pagePath": "pages/my-index/my-index",
+        "text": "我的",
+        "iconPath": "/images/tab/dianying.png",
+        "selectedIconPath": "/images/tab/dianying_hl.png"
+      }
+    ]
+  }
+}
